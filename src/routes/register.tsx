@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { RegisterForm } from "@/components/site/RegisterForm";
-import flyer from "@/assets/flyer.asset.json";
+const flyer = { url: "/flyer.jpg" };
 
 export const Route = createFileRoute("/register")({
   head: () => ({

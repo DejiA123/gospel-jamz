@@ -11,7 +11,7 @@ import { Leaders } from "@/components/site/Leaders";
 import { RegisterForm } from "@/components/site/RegisterForm";
 import heroPoster from "@/assets/hero-poster.jpg";
 import worship from "@/assets/worship.jpg";
-import flyer from "@/assets/flyer.asset.json";
+const flyer = { url: "/flyer.jpg" };
 import { ArrowRight, CalendarDays, MapPin, Ticket } from "lucide-react";
 
 // Drop the hero film in here once it's uploaded (e.g. "/hero.mp4").
