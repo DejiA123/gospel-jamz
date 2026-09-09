@@ -83,6 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "description",
         content: "Youth Conference & Creative Arts Festival — 16-18 October 2026.",
       },
+      { name: "theme-color", content: "#000000" },
       { property: "og:title", content: "Gospel Jamz 2026 | To Live Is Christ" },
       {
         property: "og:description",
