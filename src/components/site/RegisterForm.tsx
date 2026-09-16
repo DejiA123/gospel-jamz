@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { submitRegistration } from "@/lib/register.functions";
 import { CheckCircle2, Loader2 } from "lucide-react";
 
 const DAYS = ["Fri 16 Oct", "Sat 17 Oct", "Sun 18 Oct"];
@@ -19,6 +20,7 @@ export function RegisterForm() {
   const [days, setDays] = useState<string[]>([...DAYS]);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const register = useServerFn(submitRegistration);
 
   const toggleDay = (d: string) =>
     setDays((cur) => (cur.includes(d) ? cur.filter((x) => x !== d) : [...cur, d]));
@@ -45,23 +47,25 @@ export function RegisterForm() {
     }
 
     setLoading(true);
-    const { error } = await supabase.from("registrations").insert({
-      full_name: parsed.data.full_name,
-      email: parsed.data.email,
-      phone: parsed.data.phone || null,
-      group_name: parsed.data.group_name || null,
-      heard_from: parsed.data.heard_from || null,
-      notes: parsed.data.notes || null,
-      days_attending: days,
-    });
-    setLoading(false);
-
-    if (error) {
+    try {
+      await register({
+        data: {
+          full_name: parsed.data.full_name,
+          email: parsed.data.email,
+          phone: parsed.data.phone || null,
+          group_name: parsed.data.group_name || null,
+          heard_from: parsed.data.heard_from || null,
+          notes: parsed.data.notes || null,
+          days_attending: days,
+        },
+      });
+      setDone(true);
+      toast.success("You're registered. Check your email!");
+    } catch {
       toast.error("Something went wrong. Please try again.");
-      return;
+    } finally {
+      setLoading(false);
     }
-    setDone(true);
-    toast.success("You're registered. See you in October!");
   };
 
   if (done) {
