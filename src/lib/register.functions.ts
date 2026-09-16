@@ -96,8 +96,14 @@ function adminHtml(d: RegistrationInput) {
 export const submitRegistration = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => inputSchema.parse(data))
   .handler(async ({ data }) => {
-    const url = process.env["SUPABASE_URL"]!;
-    const key = process.env["SUPABASE_PUBLISHABLE_KEY"]!;
+    // On hosts where only build-time VITE_* values exist (e.g. Vercel), fall back to those.
+    const url = process.env["SUPABASE_URL"] || import.meta.env["VITE_SUPABASE_URL"];
+    const key =
+      process.env["SUPABASE_PUBLISHABLE_KEY"] || import.meta.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
+    if (!url || !key) {
+      console.error("[register] Missing database configuration on this host");
+      throw new Error("Registration is temporarily unavailable. Please try again later.");
+    }
     const supabase = createClient<Database>(url, key, {
       auth: { persistSession: false },
       global: {
