@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { submitRegistration } from "@/lib/register.functions";
 import { CheckCircle2, Loader2 } from "lucide-react";
 
 const DAYS = ["Fri 16 Oct", "Sat 17 Oct", "Sun 18 Oct"];
