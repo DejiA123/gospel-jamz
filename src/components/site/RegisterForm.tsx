@@ -46,23 +46,25 @@ export function RegisterForm() {
     }
 
     setLoading(true);
-    const { error } = await supabase.from("registrations").insert({
-      full_name: parsed.data.full_name,
-      email: parsed.data.email,
-      phone: parsed.data.phone || null,
-      group_name: parsed.data.group_name || null,
-      heard_from: parsed.data.heard_from || null,
-      notes: parsed.data.notes || null,
-      days_attending: days,
-    });
-    setLoading(false);
-
-    if (error) {
+    try {
+      await register({
+        data: {
+          full_name: parsed.data.full_name,
+          email: parsed.data.email,
+          phone: parsed.data.phone || null,
+          group_name: parsed.data.group_name || null,
+          heard_from: parsed.data.heard_from || null,
+          notes: parsed.data.notes || null,
+          days_attending: days,
+        },
+      });
+      setDone(true);
+      toast.success("You're registered. Check your email!");
+    } catch {
       toast.error("Something went wrong. Please try again.");
-      return;
+    } finally {
+      setLoading(false);
     }
-    setDone(true);
-    toast.success("You're registered. See you in October!");
   };
 
   if (done) {
