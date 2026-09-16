@@ -25,17 +25,29 @@ const esc = (v: string) =>
 async function sendEmail(to: string, subject: string, html: string) {
   const lovableKey = process.env["LOVABLE_API_KEY"];
   const resendKey = process.env["RESEND_API_KEY"];
-  if (!lovableKey || !resendKey) {
-    console.error("[register] Missing email credentials");
+  if (!resendKey) {
+    console.error("[register] Missing email credentials (RESEND_API_KEY)");
     return;
   }
-  const response = await fetch(`${GATEWAY_URL}/emails`, {
+
+  // On Lovable hosting the Resend key is a gateway connection key; on any other
+  // host (e.g. Vercel) it is a normal Resend API key used directly.
+  const useGateway = Boolean(lovableKey);
+  const endpoint = useGateway ? `${GATEWAY_URL}/emails` : "https://api.resend.com/emails";
+  const headers: Record<string, string> = useGateway
+    ? {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${lovableKey}`,
+        "X-Connection-Api-Key": resendKey,
+      }
+    : {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${resendKey}`,
+      };
+
+  const response = await fetch(endpoint, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${lovableKey}`,
-      "X-Connection-Api-Key": resendKey,
-    },
+    headers,
     body: JSON.stringify({ from: FROM, to: [to], subject, html }),
   });
   if (!response.ok) {
