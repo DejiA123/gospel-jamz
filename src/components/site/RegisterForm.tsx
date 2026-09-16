@@ -20,6 +20,7 @@ export function RegisterForm() {
   const [days, setDays] = useState<string[]>([...DAYS]);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const register = useServerFn(submitRegistration);
 
   const toggleDay = (d: string) =>
     setDays((cur) => (cur.includes(d) ? cur.filter((x) => x !== d) : [...cur, d]));
