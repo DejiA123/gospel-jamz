@@ -66,10 +66,7 @@ export function Leaders() {
           </div>
         </div>
 
-        <p className="mt-8 text-xs text-muted-foreground/70">
-          Photos and names are placeholders — send me the pictures and I&apos;ll drop them into
-          these circles.
-        </p>
+        <p className="mt-8 text-xs text-muted-foreground/70">{"\n"}</p>
       </div>
     </section>
   );
