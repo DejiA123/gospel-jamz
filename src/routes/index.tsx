@@ -141,7 +141,7 @@ function Home() {
       </section>
 
       {/* MARQUEE */}
-      <div className="overflow-hidden border-y border-border bg-primary py-4">
+      <div className="overflow-hidden border-b border-border border-t-2 border-t-[var(--color-teal)] bg-primary py-4">
         <div className="marquee-track flex w-max gap-10 whitespace-nowrap">
           {Array.from({ length: 2 }).map((_, i) => (
             <span key={i} className="flex gap-10">
