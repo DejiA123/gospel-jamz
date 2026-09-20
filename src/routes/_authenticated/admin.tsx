@@ -6,6 +6,7 @@ import { Download, Loader2, LogOut, RefreshCw } from "lucide-react";
 import { listRegistrations, type RegistrationRow } from "@/lib/registrations.functions";
 import { supabase } from "@/integrations/supabase/client";
 import { Nav } from "@/components/site/Nav";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -83,32 +84,34 @@ function AdminPage() {
       <Nav />
       <main className="pt-32 pb-24">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6">
             <div>
               <p className="eyebrow">Organiser desk</p>
-              <h1 className="mt-3 text-4xl leading-[0.95]">
+              <h1 className="mt-3 truncate text-4xl uppercase leading-[0.95]">
                 {rows.length} <span className="text-primary">registered</span>.
               </h1>
             </div>
             <div className="flex flex-wrap gap-3">
-              <button
+              <Button
                 onClick={() => refetch()}
-                className="inline-flex items-center gap-2 border border-border px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground hover:border-primary hover:text-foreground"
+                variant="outline"
+                className="h-auto rounded-none px-5 py-3 text-xs font-bold uppercase"
               >
                 <RefreshCw size={14} className={isFetching ? "animate-spin" : ""} /> Refresh
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={exportExcel}
-                className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground hover:opacity-90"
+                className="h-auto rounded-none px-5 py-3 text-xs font-bold uppercase hover:bg-secondary"
               >
                 <Download size={14} /> Download Excel
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={signOut}
-                className="inline-flex items-center gap-2 border border-border px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground hover:border-primary hover:text-foreground"
+                variant="outline"
+                className="h-auto rounded-none px-5 py-3 text-xs font-bold uppercase"
               >
                 <LogOut size={14} /> Sign out
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -127,9 +130,9 @@ function AdminPage() {
           )}
 
           {!isLoading && !isError && (
-            <div className="mt-12 overflow-x-auto border border-border">
+            <div className="mt-12 overflow-x-auto border border-border bg-card">
               <table className="w-full min-w-[900px] text-left text-sm">
-                <thead className="bg-card">
+                <thead className="bg-primary text-primary-foreground">
                   <tr className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                     <th className="p-4">Name</th>
                     <th className="p-4">Email</th>

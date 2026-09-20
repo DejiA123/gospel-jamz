@@ -5,6 +5,7 @@ import { Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -33,7 +34,7 @@ function AuthPage() {
   const [loading, setLoading] = useState(false);
 
   const field =
-    "w-full border-0 border-b border-border bg-transparent py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none";
+    "w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-hidden";
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,10 +71,10 @@ function AuthPage() {
   return (
     <div className="min-h-screen bg-background">
       <Nav />
-      <main className="stage-glow pt-32 pb-24">
-        <div className="mx-auto max-w-md px-5 md:px-8">
+      <main className="grid-noise pt-32 pb-24">
+        <div className="panel mx-auto max-w-md border-t-4 border-t-primary p-7 sm:p-10">
           <p className="eyebrow">Team access</p>
-          <h1 className="mt-4 text-4xl leading-[0.95]">
+          <h1 className="mt-4 text-4xl uppercase leading-[0.95]">
             Organiser <span className="text-primary">sign in</span>.
           </h1>
           <p className="mt-4 text-sm text-muted-foreground">
@@ -89,23 +90,24 @@ function AuthPage() {
               className={field}
               required
             />
-            <button
+            <Button
               type="submit"
               disabled={loading}
-              className="inline-flex w-full items-center justify-center gap-3 bg-primary px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
+              className="h-auto w-full rounded-none bg-primary px-8 py-4 text-xs font-bold uppercase text-primary-foreground hover:bg-secondary"
             >
               {loading && <Loader2 className="animate-spin" size={16} />}
               {mode === "signin" ? "Sign in" : "Create account"}
-            </button>
+            </Button>
           </form>
 
-          <button
+          <Button
             type="button"
             onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-            className="mt-6 text-xs uppercase tracking-[0.16em] text-muted-foreground hover:text-foreground"
+            variant="link"
+            className="mt-6 h-auto rounded-none p-0 text-xs uppercase text-muted-foreground hover:text-foreground"
           >
             {mode === "signin" ? "First time? Create your account" : "Already have an account? Sign in"}
-          </button>
+          </Button>
         </div>
       </main>
       <Footer />
