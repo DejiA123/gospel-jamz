@@ -4,10 +4,10 @@ import { Instagram, Mail, MapPin, Twitter } from "lucide-react";
 export function Footer() {
   return (
     <footer id="contact" className="border-t border-border bg-background">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 md:grid-cols-3 md:px-8">
+      <div className="mx-auto grid max-w-7xl gap-14 px-5 py-16 md:grid-cols-3 md:px-8">
         <div>
-          <p className="font-display text-2xl font-extrabold">
-            GOSPEL<span className="text-primary">JAMZ</span>
+          <p className="font-display text-2xl uppercase">
+            GOSPEL JAMZ <span className="text-primary">2026</span>
           </p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             Youth Conference &amp; Creative Arts Festival — 2026 Edition. To live is Christ.
@@ -23,7 +23,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-lg">Explore</h3>
+          <h3 className="text-lg uppercase">Explore</h3>
           <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
             <li>
               <a href="/#event" className="hover:text-primary">
@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-lg">Get in touch</h3>
+          <h3 className="text-lg uppercase">Get in touch</h3>
           <p className="mt-5 text-sm text-muted-foreground">
             Where Iron Sharpens Iron (Proverbs 27:17)
           </p>
