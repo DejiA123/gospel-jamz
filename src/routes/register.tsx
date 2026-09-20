@@ -29,11 +29,11 @@ function RegisterPage() {
   return (
     <div className="min-h-screen bg-background">
       <Nav />
-      <main className="stage-glow pt-32 pb-24">
-        <div className="mx-auto grid max-w-7xl gap-16 px-5 md:px-8 lg:grid-cols-[1fr_1.1fr]">
-          <div>
+      <main className="pt-32 pb-20 md:pb-28">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 md:px-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="panel p-6 sm:p-8">
             <p className="eyebrow">Gospel Jamz 2026</p>
-            <h1 className="mt-4 text-5xl leading-[0.95] md:text-6xl">
+            <h1 className="mt-4 text-5xl uppercase leading-[0.95] md:text-6xl">
               Save your <span className="text-primary">seat</span>.
             </h1>
             <p className="mt-6 max-w-md text-muted-foreground">
@@ -44,10 +44,10 @@ function RegisterPage() {
               src={flyer.url}
               alt="Gospel Jamz 2026 official flyer"
               loading="lazy"
-              className="mt-10 w-full max-w-sm border border-border"
+              className="mt-10 w-full border border-border"
             />
           </div>
-          <div className="border border-border bg-card p-6 sm:p-10">
+          <div className="border-t-4 border-primary bg-card p-6 sm:p-10">
             <RegisterForm />
           </div>
         </div>
