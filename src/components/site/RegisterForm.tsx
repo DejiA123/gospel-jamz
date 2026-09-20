@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
 import { submitRegistration } from "@/lib/register.functions";
 import { CheckCircle2, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const DAYS = ["Fri 16 Oct", "Sat 17 Oct", "Sun 18 Oct"];
 
@@ -70,7 +71,7 @@ export function RegisterForm() {
 
   if (done) {
     return (
-      <div className="border border-primary/40 bg-card p-10 text-center">
+      <div className="border border-primary bg-card p-10 text-center">
         <CheckCircle2 className="mx-auto text-primary" size={48} />
         <h3 className="mt-6 text-2xl">You&apos;re in.</h3>
         <p className="mt-3 text-sm text-muted-foreground">
@@ -82,7 +83,7 @@ export function RegisterForm() {
   }
 
   const field =
-    "w-full border-0 border-b border-border bg-transparent py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none";
+    "w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-hidden";
 
   return (
     <form onSubmit={onSubmit} className="space-y-7">
@@ -99,18 +100,18 @@ export function RegisterForm() {
           {DAYS.map((d) => {
             const active = days.includes(d);
             return (
-              <button
+              <Button
                 type="button"
                 key={d}
                 onClick={() => toggleDay(d)}
-                className={`border px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] transition-colors ${
+                className={`h-auto rounded-none border px-5 py-3 text-xs font-bold uppercase transition-colors ${
                   active
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border text-muted-foreground hover:border-primary hover:text-foreground"
                 }`}
               >
                 {d}
-              </button>
+              </Button>
             );
           })}
         </div>
@@ -124,14 +125,14 @@ export function RegisterForm() {
         className={field}
       />
 
-      <button
+      <Button
         type="submit"
         disabled={loading}
-        className="inline-flex w-full items-center justify-center gap-3 bg-primary px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-auto"
+        className="h-auto w-full rounded-none bg-primary px-8 py-4 text-xs font-bold uppercase text-primary-foreground hover:bg-secondary sm:w-auto"
       >
         {loading && <Loader2 className="animate-spin" size={16} />}
         Reserve my place
-      </button>
+      </Button>
     </form>
   );
 }
