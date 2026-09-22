@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, CalendarDays, MapPin, Ticket } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Clock, MapPin, Ticket } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
@@ -26,9 +26,9 @@ export const Route = createFileRoute("/")({
 });
 
 const programme = [
-  { day: "01 · Fri 16 Oct", title: "The Call", items: ["Doors & welcome", "Opening worship", "Word: To live is Christ", "Late night prayer"] },
-  { day: "02 · Sat 17 Oct", title: "The Craft", items: ["Creative arts workshops", "Dance & spoken word", "Main session", "Gospel Jamz night"] },
-  { day: "03 · Sun 18 Oct", title: "The Commission", items: ["Morning worship", "Testimonies", "Closing word", "Sending out"] },
+  { day: "01 · Fri 16 Oct", time: "Starts 6:00 PM", title: "The Call", items: ["Doors & welcome", "Opening worship", "Word: To live is Christ", "Late night prayer"] },
+  { day: "02 · Sat 17 Oct", time: "Starts 12:00 PM", title: "The Craft", items: ["Creative arts workshops", "Dance & spoken word", "Main session", "Gospel Jamz night"] },
+  { day: "03 · Sun 18 Oct", time: "Starts 11:00 AM", title: "The Commission", items: ["Morning worship", "Testimonies", "Closing word", "Sending out"] },
 ];
 
 const values = [
@@ -101,10 +101,34 @@ function Home() {
             <div className="grid gap-px border border-border bg-border sm:grid-cols-3">
               {[["3", "Nights"], ["12+", "Sessions"], ["Free", "Entry"]].map(([number, label]) => <div key={label} className="bg-background p-7"><p className="font-display text-4xl text-primary">{number}</p><p className="mt-2 text-xs uppercase text-muted-foreground">{label}</p></div>)}
             </div>
-            <div className="grid gap-4 border-l-4 border-secondary bg-card p-7 sm:grid-cols-3">
-              <p className="flex items-center gap-3 text-sm"><CalendarDays className="text-secondary" size={18} /> 16–18 October</p>
-              <p className="flex items-center gap-3 text-sm"><MapPin className="text-secondary" size={18} /> Power House Int&apos;l</p>
-              <p className="flex items-center gap-3 text-sm"><Ticket className="text-secondary" size={18} /> Registration required</p>
+            <div className="border-l-4 border-secondary bg-card p-6 sm:p-7 space-y-4">
+              <div className="grid gap-4 sm:grid-cols-3">
+                <p className="flex items-center gap-3 text-sm font-medium">
+                  <CalendarDays className="text-secondary shrink-0" size={18} /> 16–18 October
+                </p>
+                <p className="flex items-center gap-3 text-sm font-medium">
+                  <MapPin className="text-secondary shrink-0" size={18} /> Power House Int&apos;l
+                </p>
+                <p className="flex items-center gap-3 text-sm font-medium">
+                  <Ticket className="text-secondary shrink-0" size={18} /> Registration required
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border/80 pt-4 text-xs sm:text-sm">
+                <span className="flex items-center gap-2 font-display uppercase tracking-wider text-xs text-secondary font-bold">
+                  <Clock size={16} className="shrink-0" /> Times:
+                </span>
+                <span className="text-muted-foreground">
+                  <strong className="text-foreground">Friday:</strong> 6PM
+                </span>
+                <span className="text-border hidden sm:inline">|</span>
+                <span className="text-muted-foreground">
+                  <strong className="text-foreground">Saturday:</strong> 12PM
+                </span>
+                <span className="text-border hidden sm:inline">|</span>
+                <span className="text-muted-foreground">
+                  <strong className="text-foreground">Sunday:</strong> 11AM
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -115,7 +139,25 @@ function Home() {
           <p className="eyebrow">Programme</p>
           <h2 className="mt-4 max-w-4xl text-4xl uppercase md:text-6xl">What the weekend looks like</h2>
           <div className="mt-12 grid gap-px border border-border bg-border lg:grid-cols-3">
-            {programme.map((item) => <article key={item.day} className="bg-card p-7 md:p-9"><p className="text-xs font-bold uppercase text-primary">{item.day}</p><h3 className="mt-4 text-3xl uppercase">{item.title}</h3><ul className="mt-8 space-y-0">{item.items.map((line, index) => <li key={line} className="grid grid-cols-[2rem_1fr] border-t border-border py-4 text-sm text-muted-foreground"><span className="text-secondary">0{index + 1}</span>{line}</li>)}</ul></article>)}
+            {programme.map((item) => (
+              <article key={item.day} className="bg-card p-7 md:p-9">
+                <div className="flex items-center justify-between border-b border-border pb-3">
+                  <p className="text-xs font-bold uppercase text-primary">{item.day}</p>
+                  <p className="flex items-center gap-1.5 font-mono text-xs text-secondary">
+                    <Clock size={13} /> {item.time}
+                  </p>
+                </div>
+                <h3 className="mt-4 text-3xl uppercase">{item.title}</h3>
+                <ul className="mt-8 space-y-0">
+                  {item.items.map((line, index) => (
+                    <li key={line} className="grid grid-cols-[2rem_1fr] border-t border-border py-4 text-sm text-muted-foreground">
+                      <span className="text-secondary">0{index + 1}</span>
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </div>
       </section>

@@ -7,6 +7,11 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const DAYS = ["Fri 16 Oct", "Sat 17 Oct", "Sun 18 Oct"];
+const DAY_TIMES: Record<string, string> = {
+  "Fri 16 Oct": "6PM",
+  "Sat 17 Oct": "12PM",
+  "Sun 18 Oct": "11AM",
+};
 
 const schema = z.object({
   full_name: z.string().trim().min(2, "Please enter your name").max(120),
@@ -110,7 +115,7 @@ export function RegisterForm() {
                     : "border-border text-muted-foreground hover:border-primary hover:text-foreground"
                 }`}
               >
-                {d}
+                {d} <span className="ml-1 opacity-75 font-normal">({DAY_TIMES[d]})</span>
               </Button>
             );
           })}

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Clock } from "lucide-react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { RegisterForm } from "@/components/site/RegisterForm";
@@ -40,11 +41,21 @@ function RegisterPage() {
               Three nights of worship, word and creative arts. Entry is free — registering just
               helps us plan the room, the resources and the food.
             </p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-border/80 py-3 text-xs text-muted-foreground">
+              <span className="flex items-center gap-1.5 font-display uppercase tracking-wider text-secondary font-bold">
+                <Clock size={14} /> Times:
+              </span>
+              <span><strong className="text-foreground">Fri:</strong> 6PM</span>
+              <span className="text-border">|</span>
+              <span><strong className="text-foreground">Sat:</strong> 12PM</span>
+              <span className="text-border">|</span>
+              <span><strong className="text-foreground">Sun:</strong> 11AM</span>
+            </div>
             <img
               src={flyer.url}
               alt="Gospel Jamz 2026 official flyer"
               loading="lazy"
-              className="mt-10 w-full border border-border"
+              className="mt-8 w-full border border-border"
             />
           </div>
           <div className="border-t-4 border-primary bg-card p-6 sm:p-10">
