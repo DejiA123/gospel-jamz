@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, CalendarDays, Clock, MapPin, Ticket } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Clock, MapPin } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
@@ -102,15 +102,12 @@ function Home() {
               {[["3", "Nights"], ["12+", "Sessions"], ["Free", "Entry"]].map(([number, label]) => <div key={label} className="bg-background p-7"><p className="font-display text-4xl text-primary">{number}</p><p className="mt-2 text-xs uppercase text-muted-foreground">{label}</p></div>)}
             </div>
             <div className="border-l-4 border-secondary bg-card p-6 sm:p-7 space-y-4">
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <p className="flex items-center gap-3 text-sm font-medium">
                   <CalendarDays className="text-secondary shrink-0" size={18} /> 16–18 October
                 </p>
                 <p className="flex items-center gap-3 text-sm font-medium">
-                  <MapPin className="text-secondary shrink-0" size={18} /> Power House Int&apos;l
-                </p>
-                <p className="flex items-center gap-3 text-sm font-medium">
-                  <Ticket className="text-secondary shrink-0" size={18} /> Registration required
+                  <MapPin className="text-secondary shrink-0" size={18} /> Power House Int&apos;l (H91 958A)
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border/80 pt-4 text-xs sm:text-sm">
