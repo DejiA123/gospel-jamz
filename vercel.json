@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/__l5e/:path*",
+      "destination": "https://gospel-jamz.lovable.app/__l5e/:path*"
+    }
+  ]
+}

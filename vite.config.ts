@@ -12,4 +12,14 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    server: {
+      proxy: {
+        "/__l5e": {
+          target: "https://gospel-jamz.lovable.app",
+          changeOrigin: true,
+        },
+      },
+    },
+  },
 });
