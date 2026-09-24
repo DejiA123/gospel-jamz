@@ -9,19 +9,19 @@ import dejiAugustine from "@/assets/lineup/pastor-deji-augustine.webp.asset.json
 import tgic from "@/assets/lineup/tgic.webp.asset.json";
 import ewanAhern from "@/assets/lineup/ewan-ahern.webp";
 
-type Leader = { name: string; role: string; photo: string };
+type Leader = { name: string; photo: string };
 
 const leaders: Leader[] = [
-  { name: "Joel Osachae", role: "Living for Christ", photo: joelOsachae.url },
-  { name: "Min Merit Omoyayi", role: "Living for Christ", photo: meritOmoyayi.url },
-  { name: "Bailey333", role: "Living for Christ", photo: bailey333.url },
-  { name: "Min Rekky Chigozie", role: "Living for Christ", photo: bekkyChigozie.url },
-  { name: "Min Kenoly Ugbodu", role: "Living for Christ", photo: kenolyUgbodu.url },
-  { name: "Min Vicky Ugbodu", role: "Living for Christ", photo: vickyUgbodu.url },
-  { name: "Walk With Zai", role: "Living for Christ", photo: walkWithZai.url },
-  { name: "Pastor Deji Augustine", role: "Living for Christ", photo: dejiAugustine.url },
-  { name: "TGIC", role: "Living for Christ", photo: tgic.url },
-  { name: "Ewan Ahern", role: "Living for Christ", photo: ewanAhern },
+  { name: "Joel Osachae", photo: joelOsachae.url },
+  { name: "Min Merit Omoyayi", photo: meritOmoyayi.url },
+  { name: "Bailey333", photo: bailey333.url },
+  { name: "Min Rekky Chigozie", photo: bekkyChigozie.url },
+  { name: "Min Kenoly Ugbodu", photo: kenolyUgbodu.url },
+  { name: "Min Vicky Ugbodu", photo: vickyUgbodu.url },
+  { name: "Walk With Zai", photo: walkWithZai.url },
+  { name: "Pastor Deji Augustine", photo: dejiAugustine.url },
+  { name: "TGIC", photo: tgic.url },
+  { name: "Ewan Ahern", photo: ewanAhern },
 ];
 
 export function Leaders() {
@@ -46,10 +46,7 @@ export function Leaders() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <p className="mt-5 font-display text-sm uppercase">{l.name}</p>
-                <p className="mt-1 text-xs uppercase text-primary">
-                  {l.role}
-                </p>
+                <p className="mt-5 mb-2 font-display text-sm uppercase">{l.name}</p>
               </div>
             ))}
           </div>
