@@ -14,7 +14,7 @@ const leaders: Leader[] = [
   { name: "Joel Osachae", role: "Living for Christ", photo: joelOsachae.url },
   { name: "Min Merit Omoyayi", role: "Living for Christ", photo: meritOmoyayi.url },
   { name: "Bailey333", role: "Living for Christ", photo: bailey333.url },
-  { name: "Min Bekky Chigozie", role: "Living for Christ", photo: bekkyChigozie.url },
+  { name: "Min Rekky Chigozie", role: "Living for Christ", photo: bekkyChigozie.url },
   { name: "Min Kenoly Ugbodu", role: "Living for Christ", photo: kenolyUgbodu.url },
   { name: "Min Vicky Ugbodu", role: "Living for Christ", photo: vickyUgbodu.url },
   { name: "Walk With Zai", role: "Living for Christ", photo: walkWithZai.url },
