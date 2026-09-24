@@ -7,6 +7,7 @@ import vickyUgbodu from "@/assets/lineup/min-vicky-ugbodu.webp.asset.json";
 import walkWithZai from "@/assets/lineup/walk-with-zai.webp.asset.json";
 import dejiAugustine from "@/assets/lineup/pastor-deji-augustine.webp.asset.json";
 import tgic from "@/assets/lineup/tgic.webp.asset.json";
+import ewanAhern from "@/assets/lineup/ewan-ahern.webp";
 
 type Leader = { name: string; role: string; photo: string };
 
@@ -20,6 +21,7 @@ const leaders: Leader[] = [
   { name: "Walk With Zai", role: "Living for Christ", photo: walkWithZai.url },
   { name: "Pastor Deji Augustine", role: "Living for Christ", photo: dejiAugustine.url },
   { name: "TGIC", role: "Living for Christ", photo: tgic.url },
+  { name: "Ewan Ahern", role: "Living for Christ", photo: ewanAhern },
 ];
 
 export function Leaders() {
