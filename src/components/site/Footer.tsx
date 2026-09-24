@@ -31,18 +31,13 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="/#programme" className="hover:text-primary">
-                Programme
+              <a href="/#team" className="hover:text-primary">
+                Lineup
               </a>
             </li>
             <li>
               <a href="/#about" className="hover:text-primary">
                 Who We Are
-              </a>
-            </li>
-            <li>
-              <a href="/#team" className="hover:text-primary">
-                The Team
               </a>
             </li>
             <li>
@@ -62,7 +57,7 @@ export function Footer() {
             <MapPin size={18} className="text-primary" /> The Power House Int&apos;l
           </p>
           <p className="mt-4 flex items-center gap-3 text-sm text-muted-foreground">
-            <Mail size={18} className="text-primary" /> hello@gospeljamz.org
+            <Mail size={18} className="text-primary" /> tphcreatives@gmail.com
           </p>
           <p className="mt-6 text-xs text-muted-foreground/70">
             Contact details are placeholders — send me the real address, email and social links and

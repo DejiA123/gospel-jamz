@@ -25,11 +25,9 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const programme = [
-  { day: "01 · Fri 16 Oct", time: "Starts 6:00 PM", title: "The Call", items: ["Doors & welcome", "Opening worship", "Word: To live is Christ", "Late night prayer"] },
-  { day: "02 · Sat 17 Oct", time: "Starts 12:00 PM", title: "The Craft", items: ["Creative arts workshops", "Dance & spoken word", "Main session", "Gospel Jamz night"] },
-  { day: "03 · Sun 18 Oct", time: "Starts 11:00 AM", title: "The Commission", items: ["Morning worship", "Testimonies", "Closing word", "Sending out"] },
-];
+const VENUE_EIRCODE = "H91 958A";
+const VENUE_MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(VENUE_EIRCODE)}&z=15&output=embed`;
+const VENUE_DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(VENUE_EIRCODE)}`;
 
 const values = [
   { t: "Worship, Prayer & True Fellowship", d: "Worship is the heartbeat. We're after true, authentic moments with God — not performance." },
@@ -76,7 +74,7 @@ function Home() {
               <h2 className="mt-3 text-4xl uppercase leading-none md:text-6xl">Three nights.<br />One sound.</h2>
               <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">A gathering of worship, word and creative arts for a generation living fully for Christ.</p>
             </div>
-            <Link to="/register" className="inline-flex min-h-16 items-center justify-between gap-8 bg-primary px-7 font-display text-sm uppercase text-primary-foreground transition-colors hover:bg-secondary">
+            <Link to="/register" className="order-first inline-flex min-h-16 items-center justify-between gap-8 bg-primary px-7 font-display text-sm uppercase text-primary-foreground transition-colors hover:bg-secondary md:order-none">
               Register free <ArrowUpRight size={18} />
             </Link>
           </div>
@@ -107,7 +105,7 @@ function Home() {
                   <CalendarDays className="text-secondary shrink-0" size={18} /> 16–18 October
                 </p>
                 <p className="flex items-center gap-3 text-sm font-medium">
-                  <MapPin className="text-secondary shrink-0" size={18} /> Power House Int&apos;l (H91 958A)
+                  <MapPin className="text-secondary shrink-0" size={18} /> The Power House Int&apos;l (H91 958A)
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border/80 pt-4 text-xs sm:text-sm">
@@ -129,35 +127,24 @@ function Home() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section id="programme" className="border-b border-border py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="eyebrow">Programme</p>
-          <h2 className="mt-4 max-w-4xl text-4xl uppercase md:text-6xl">What the weekend looks like</h2>
-          <div className="mt-12 grid gap-px border border-border bg-border lg:grid-cols-3">
-            {programme.map((item) => (
-              <article key={item.day} className="bg-card p-7 md:p-9">
-                <div className="flex items-center justify-between border-b border-border pb-3">
-                  <p className="text-xs font-bold uppercase text-primary">{item.day}</p>
-                  <p className="flex items-center gap-1.5 font-mono text-xs text-secondary">
-                    <Clock size={13} /> {item.time}
-                  </p>
-                </div>
-                <h3 className="mt-4 text-3xl uppercase">{item.title}</h3>
-                <ul className="mt-8 space-y-0">
-                  {item.items.map((line, index) => (
-                    <li key={line} className="grid grid-cols-[2rem_1fr] border-t border-border py-4 text-sm text-muted-foreground">
-                      <span className="text-secondary">0{index + 1}</span>
-                      {line}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+        <div className="mx-auto mt-6 max-w-7xl px-5 md:px-8">
+          <div className="grid gap-px border border-border bg-border lg:grid-cols-[0.82fr_1.18fr]">
+            <div className="flex flex-col justify-between gap-8 bg-card p-7 md:p-10">
+              <div>
+                <p className="eyebrow">Find us</p>
+                <h3 className="mt-4 text-3xl uppercase leading-none md:text-4xl">The Power House Int&apos;l</h3>
+                <p className="mt-4 flex items-center gap-3 text-sm text-muted-foreground"><MapPin className="text-secondary shrink-0" size={18} /> Eircode {VENUE_EIRCODE}</p>
+              </div>
+              <a href={VENUE_DIRECTIONS} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center justify-between gap-8 bg-primary px-6 font-display text-sm uppercase text-primary-foreground transition-colors hover:bg-secondary">
+                Get directions <ArrowUpRight size={18} />
+              </a>
+            </div>
+            <iframe title={`Map of The Power House Int'l (${VENUE_EIRCODE})`} src={VENUE_MAP_EMBED} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen className="h-[360px] w-full border-0 bg-card invert-90 hue-rotate-180 md:h-[440px]" />
           </div>
         </div>
       </section>
+
+      <Leaders />
 
       <section id="about" className="border-b border-border py-20 md:py-28">
         <div className="mx-auto grid max-w-7xl gap-6 px-5 md:px-8 lg:grid-cols-2">
@@ -177,8 +164,6 @@ function Home() {
       <section className="bg-primary py-12 text-primary-foreground">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px px-5 md:grid-cols-4 md:px-8">{[["Team", "40+"], ["People", "100+"], ["Years", "4+"], ["Events", "15+"]].map(([label, number]) => <div key={label} className="border-l border-primary-foreground/30 p-5"><p className="text-xs font-bold uppercase">{label}</p><p className="font-display text-4xl md:text-6xl">{number}</p></div>)}</div>
       </section>
-
-      <Leaders />
 
       <section id="register" className="border-t border-border py-20 md:py-28">
         <div className="mx-auto grid max-w-7xl gap-6 px-5 md:px-8 lg:grid-cols-[0.7fr_1.3fr]">

@@ -27,7 +27,7 @@ export function Leaders() {
   const loop = [...leaders, ...leaders];
 
   return (
-    <section id="team" className="border-t border-border bg-background py-20 md:py-28">
+    <section id="team" className="border-b border-border bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <p className="eyebrow">Gospel Jamz 2026 lineup</p>
         <h2 className="mt-4 max-w-3xl text-4xl uppercase md:text-6xl">Meet the voices of the weekend</h2>
