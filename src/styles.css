@@ -95,6 +95,12 @@
     background: var(--primary);
     color: var(--primary-foreground);
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
 }
 
 @utility text-chrome {
@@ -152,6 +158,51 @@
   animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes cta-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 color-mix(in oklab, var(--primary) 70%, transparent),
+      0 12px 40px -12px color-mix(in oklab, var(--primary) 80%, transparent);
+  }
+  70% {
+    box-shadow:
+      0 0 0 16px color-mix(in oklab, var(--primary) 0%, transparent),
+      0 12px 70px -6px var(--primary);
+  }
+}
+
+@keyframes cta-nudge {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(3px, -3px);
+  }
+}
+
+@keyframes cta-slide-up {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@utility cta-glow {
+  animation: cta-glow 2.2s ease-out infinite;
+}
+
+@utility cta-nudge {
+  animation: cta-nudge 1.6s ease-in-out infinite;
+}
+
+@utility cta-slide-up {
+  animation: cta-slide-up 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track, .animate-rise { animation: none; }
+  .marquee-track, .animate-rise, .cta-glow, .cta-nudge, .cta-slide-up { animation: none; }
 }

@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { RegisterLink } from "@/components/site/RegisterCta";
 
 const links = [
   { label: "Home", href: "/#top" },
@@ -45,12 +45,9 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            to="/register"
-            className="hidden items-center gap-2 bg-primary px-6 py-3 text-xs font-bold uppercase text-primary-foreground transition-colors hover:bg-secondary sm:inline-flex"
-          >
+          <RegisterLink className="hidden items-center gap-2 bg-primary px-6 py-3 text-xs font-bold uppercase text-primary-foreground transition-colors hover:bg-secondary sm:inline-flex">
             Register <ArrowUpRight size={14} />
-          </Link>
+          </RegisterLink>
           <button
             aria-label="Menu"
             onClick={() => setOpen((v) => !v)}
@@ -74,13 +71,12 @@ export function Nav() {
                 {l.label}
               </a>
             ))}
-            <Link
-              to="/register"
+            <RegisterLink
               onClick={() => setOpen(false)}
               className="mt-2 bg-primary px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground"
             >
               Register
-            </Link>
+            </RegisterLink>
           </div>
         </div>
       )}

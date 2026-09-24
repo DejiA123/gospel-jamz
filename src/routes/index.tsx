@@ -1,10 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, CalendarDays, Clock, MapPin } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Leaders } from "@/components/site/Leaders";
 import { RegisterForm } from "@/components/site/RegisterForm";
+import { HeroRegisterCta, StickyRegisterBar } from "@/components/site/RegisterCta";
 import heroPoster from "@/assets/hero-poster.jpg";
 import worship from "@/assets/worship.jpg";
 
@@ -74,9 +75,7 @@ function Home() {
               <h2 className="mt-3 text-4xl uppercase leading-none md:text-6xl">Three nights.<br />One sound.</h2>
               <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">A gathering of worship, word and creative arts for a generation living fully for Christ.</p>
             </div>
-            <Link to="/register" className="order-first inline-flex min-h-16 items-center justify-between gap-8 bg-primary px-7 font-display text-sm uppercase text-primary-foreground transition-colors hover:bg-secondary md:order-none">
-              Register free <ArrowUpRight size={18} />
-            </Link>
+            <HeroRegisterCta />
           </div>
         </div>
       </section>
@@ -173,6 +172,7 @@ function Home() {
       </section>
 
       <Footer />
+      <StickyRegisterBar />
     </div>
   );
 }

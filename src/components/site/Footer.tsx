@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { Instagram, Mail, MapPin, Twitter } from "lucide-react";
+import { RegisterLink } from "@/components/site/RegisterCta";
 
 export function Footer() {
   return (
@@ -41,9 +41,7 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <Link to="/register" className="hover:text-primary">
-                Register
-              </Link>
+              <RegisterLink className="hover:text-primary">Register</RegisterLink>
             </li>
           </ul>
         </div>

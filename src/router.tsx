@@ -9,6 +9,8 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
+    // Page changes jump instantly; in-page #section links scroll smoothly (see styles.css).
+    scrollRestorationBehavior: "instant",
     defaultPreloadStaleTime: 0,
   });
 

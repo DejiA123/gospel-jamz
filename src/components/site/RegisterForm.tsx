@@ -109,10 +109,11 @@ export function RegisterForm() {
                 type="button"
                 key={d}
                 onClick={() => toggleDay(d)}
+                aria-pressed={active}
                 className={`h-auto rounded-none border px-5 py-3 text-xs font-bold uppercase transition-colors ${
                   active
                     ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border text-muted-foreground hover:border-primary hover:text-foreground"
+                    : "border-border bg-transparent text-muted-foreground hover:border-primary hover:bg-transparent hover:text-foreground"
                 }`}
               >
                 {d} <span className="ml-1 opacity-75 font-normal">({DAY_TIMES[d]})</span>
