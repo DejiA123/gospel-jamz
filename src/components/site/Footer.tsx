@@ -1,4 +1,4 @@
-import { Instagram, Mail, MapPin, Twitter } from "lucide-react";
+import { Instagram, Mail, MapPin, Youtube } from "lucide-react";
 import { RegisterLink } from "@/components/site/RegisterCta";
 
 export function Footer() {
@@ -13,11 +13,23 @@ export function Footer() {
             Youth Conference &amp; Creative Arts Festival — 2026 Edition. To live is Christ.
           </p>
           <div className="mt-6 flex gap-4">
-            <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-primary">
-              <Twitter size={20} />
-            </a>
-            <a href="#" aria-label="Instagram" className="text-muted-foreground hover:text-primary">
+            <a
+              href="https://www.instagram.com/tphcreatives"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-muted-foreground hover:text-primary"
+            >
               <Instagram size={20} />
+            </a>
+            <a
+              href="https://www.youtube.com/@tphcreativess"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="text-muted-foreground hover:text-primary"
+            >
+              <Youtube size={20} />
             </a>
           </div>
         </div>
@@ -56,10 +68,6 @@ export function Footer() {
           </p>
           <p className="mt-4 flex items-center gap-3 text-sm text-muted-foreground">
             <Mail size={18} className="text-primary" /> tphcreatives@gmail.com
-          </p>
-          <p className="mt-6 text-xs text-muted-foreground/70">
-            Contact details are placeholders — send me the real address, email and social links and
-            I&apos;ll swap them in.
           </p>
         </div>
       </div>
