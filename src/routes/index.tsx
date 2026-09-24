@@ -61,14 +61,14 @@ function Home() {
         </div>
       </header>
 
-      <section className="relative min-h-[72svh] overflow-hidden border-b border-border">
+      <section className="relative overflow-hidden border-b border-border md:min-h-[72svh]">
         {HERO_VIDEO ? (
           <video className="absolute inset-0 h-full w-full object-cover" src={HERO_VIDEO} poster={heroPoster} autoPlay muted loop playsInline />
         ) : (
           <img src={heroPoster} alt="Crowd worshipping under stage lights at Gospel Jamz" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
         )}
         <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-background/10" />
-        <div className="relative mx-auto flex min-h-[72svh] max-w-7xl items-end px-5 py-12 md:px-8 md:py-16">
+        <div className="relative mx-auto flex max-w-7xl items-end px-5 pt-8 pb-12 md:min-h-[72svh] md:px-8 md:py-16">
           <div className="grid w-full gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
             <div className="max-w-2xl border-l-4 border-primary bg-background/90 p-6 backdrop-blur-sm md:p-8">
               <p className="eyebrow">The 2026 edition</p>
@@ -107,20 +107,20 @@ function Home() {
                   <MapPin className="text-secondary shrink-0" size={18} /> The Power House Int&apos;l (H91 958A)
                 </p>
               </div>
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border/80 pt-4 text-xs sm:text-sm">
-                <span className="flex items-center gap-2 font-display uppercase tracking-wider text-xs text-secondary font-bold">
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-2 border-t border-border/80 pt-4 text-xs sm:gap-x-5 sm:text-sm">
+                <span className="flex items-center gap-1.5 font-display uppercase tracking-wider text-xs text-secondary font-bold sm:gap-2">
                   <Clock size={16} className="shrink-0" /> Times:
                 </span>
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Friday:</strong> 6PM
+                  <strong className="text-foreground"><span className="sm:hidden">Fri</span><span className="hidden sm:inline">Friday</span>:</strong> 6PM
                 </span>
                 <span className="text-border hidden sm:inline">|</span>
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Saturday:</strong> 12PM
+                  <strong className="text-foreground"><span className="sm:hidden">Sat</span><span className="hidden sm:inline">Saturday</span>:</strong> 12PM
                 </span>
                 <span className="text-border hidden sm:inline">|</span>
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">Sunday:</strong> 11AM
+                  <strong className="text-foreground"><span className="sm:hidden">Sun</span><span className="hidden sm:inline">Sunday</span>:</strong> 11AM
                 </span>
               </div>
             </div>
