@@ -1,7 +1,7 @@
 import joelOsachae from "@/assets/lineup/joel-osachae.webp.asset.json";
 import meritOmoyayi from "@/assets/lineup/min-merit-omoyayi.webp.asset.json";
 import bailey333 from "@/assets/lineup/bailey333.webp.asset.json";
-import bekkyChigozie from "@/assets/lineup/min-bekky-chigozie.webp.asset.json";
+import rekiaChigozie from "@/assets/lineup/min-rekia-chigozie.webp";
 import kenolyUgbodu from "@/assets/lineup/min-kenoly-ugbodu.webp.asset.json";
 import vickyUgbodu from "@/assets/lineup/min-vicky-ugbodu.webp.asset.json";
 import walkWithZai from "@/assets/lineup/walk-with-zai.webp.asset.json";
@@ -15,7 +15,7 @@ const leaders: Leader[] = [
   { name: "Joel Osachae", photo: joelOsachae.url },
   { name: "Min Merit Omoyayi", photo: meritOmoyayi.url },
   { name: "Bailey333", photo: bailey333.url },
-  { name: "Min Rekky Chigozie", photo: bekkyChigozie.url },
+  { name: "Min Rekia Chigozie", photo: rekiaChigozie },
   { name: "Min Kenoly Ugbodu", photo: kenolyUgbodu.url },
   { name: "Min Vicky Ugbodu", photo: vickyUgbodu.url },
   { name: "Walk With Zai", photo: walkWithZai.url },
